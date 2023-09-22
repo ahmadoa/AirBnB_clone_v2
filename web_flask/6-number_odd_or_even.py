@@ -40,7 +40,7 @@ def numTemp(n):
     return render_template("5-number.html", n=n)
 
 
-@app.route("/number_odd_or_even/<n>")
+@app.route("/number_odd_or_even/<int:n>")
 def numOddorEven(n):
     return render_template("6-number_odd_or_even.html", n=n)
 
