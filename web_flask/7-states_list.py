@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""starts a Flask web application
-"""
+"""starts a Flask web application"""
 from flask import Flask, render_template
 from models import storage
 from models.state import State
@@ -19,9 +18,8 @@ def close_db(exc):
 
 @app.route('/states_list')
 def states_list():
-    """display a HTML page
-    """
-    states = storage.all(State).values()
+    """display a HTML page"""
+    states = sorted(list(storage.all("State").values()), key=lambda s: s.name)
     return render_template("7-states_list.html", states=states)
 
 

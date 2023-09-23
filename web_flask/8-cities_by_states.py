@@ -19,12 +19,9 @@ def close_db(exc):
 
 @app.route('/cities_by_states')
 def cities_by_states():
-    """display a HTML page
-    """
-    states = storage.all(State).values()
-    return render_template("8-cities_by_states.html", states=states)
+    """display a HTML page"""
+    return render_template("8-cities_by_states.html", states=storage.all("State"))
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
     app.run(host='0.0.0.0', port=5000)
